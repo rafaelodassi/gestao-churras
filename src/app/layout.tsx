@@ -1,13 +1,12 @@
-import type { Metadata } from 'next';
+'use client';
+
 import { Inter } from 'next/font/google';
+import { ThemeProvider } from 'styled-components';
 
-import './globals.css';
+import StyledComponentsRegistry from '../lib/registry';
+import { Theme, GlobalStyles } from '../styles/themeConfig';
+
 const inter = Inter({ subsets: ['latin'] });
-
-export const metadata: Metadata = {
-  title: 'Gestão Churras',
-  description: 'Gestão Churras',
-};
 
 export default function RootLayout({
   children,
@@ -16,7 +15,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
+      <head>
+        <title>Gestão Churras</title>
+      </head>
+      <body className={inter.className}>
+        <StyledComponentsRegistry>
+          <ThemeProvider theme={Theme}>
+            <GlobalStyles />
+            {children}
+          </ThemeProvider>
+        </StyledComponentsRegistry>
+      </body>
     </html>
   );
 }
