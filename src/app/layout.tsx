@@ -2,12 +2,14 @@
 
 import { Provider } from 'react-redux';
 
+import { ConfigProvider } from 'antd';
 import { Open_Sans } from 'next/font/google';
 import { ThemeProvider } from 'styled-components';
 
-import StyledComponentsRegistry from '../lib/registry';
+import AntdRegistry from '../lib/AntdRegistry';
+import StyledComponentsRegistry from '../lib/StyledComponentsRegistry';
 import { setupStore } from '../store';
-import { Theme, GlobalStyles } from '../styles/themeConfig';
+import { GlobalStyles, Theme } from '../styles/themeConfig';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -29,10 +31,14 @@ export default function RootLayout({
       <body className={openSans.className}>
         <Provider store={setupStore()}>
           <StyledComponentsRegistry>
-            <ThemeProvider theme={Theme}>
-              <GlobalStyles />
-              {children}
-            </ThemeProvider>
+            <AntdRegistry>
+              <ThemeProvider theme={Theme}>
+                <ConfigProvider theme={Theme}>
+                  <GlobalStyles />
+                  {children}
+                </ConfigProvider>
+              </ThemeProvider>
+            </AntdRegistry>
           </StyledComponentsRegistry>
         </Provider>
       </body>

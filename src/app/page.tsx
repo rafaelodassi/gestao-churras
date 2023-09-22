@@ -2,7 +2,7 @@
 
 import Masonry from 'react-masonry-css';
 
-import { DatePicker } from 'antd';
+import { Drawer } from 'antd';
 
 import Beer from '../../public/img/beer.png';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
@@ -29,6 +29,10 @@ export default function Home() {
 
   const newRegiter = () => {
     dispatch(setOpenDrawer(true));
+  };
+
+  const onCloseDrawer = () => {
+    dispatch(setOpenDrawer(false));
   };
 
   return (
@@ -75,7 +79,15 @@ export default function Home() {
           ))}
         </Masonry>
       </Styled.Main>
-      <DatePicker />
+      <Drawer
+        title='Drawer with extra actions'
+        placement={'right'}
+        width={500}
+        onClose={onCloseDrawer}
+        open={openDrawer}
+      >
+        <div>as</div>
+      </Drawer>
     </Styled.Container>
   );
 }

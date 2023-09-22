@@ -107,6 +107,7 @@ export const Main = styled.main`
     margin-left: -30px;
     width: auto;
   }
+
   .masonry-grid-column {
     padding-left: 30px;
     background-clip: padding-box;

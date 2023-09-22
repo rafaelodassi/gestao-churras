@@ -1,6 +1,5 @@
+import type { ThemeConfig } from 'antd';
 import { createGlobalStyle } from 'styled-components';
-
-export const Theme = {};
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -24,3 +23,5 @@ export const GlobalStyles = createGlobalStyle`
     color: inherit;
   }
 `;
+
+export const Theme: ThemeConfig = {};
