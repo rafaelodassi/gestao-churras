@@ -12,10 +12,15 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background: #1f1f1f;
-    color: #fff;
+    background: #f2f5f8;
+    color: #3f3f3f;
     padding: 0;
     margin: 0;
     height: 100%;
+  }
+
+  input, button {
+    font-family: inherit;
+    color: inherit;
   }
 `;
