@@ -11,7 +11,6 @@ import {
   Button,
   Collapse,
   ColorPicker,
-  Slider,
 } from 'antd';
 import locale from 'antd/es/date-picker/locale/pt_BR';
 import dayjs from 'dayjs';
@@ -24,6 +23,7 @@ import {
   updateChurras,
 } from '../../store/slices/churrasSlice';
 import { setOpenDrawer } from '../../store/slices/uiSlice';
+import { maskFormatter, maskParser } from '../../utils/format';
 
 import * as Styled from './styles';
 
@@ -88,7 +88,7 @@ const NewRegister = () => {
         children: (
           <>
             <Styled.Help
-              message='Adicione os participantes preenchendo o nome e o valor de contribuição de cada um, variando de R$ 0,00 a R$ 100,00 de acordo com a preferência de cada um. Valor sugerido: R$ 20,00.'
+              message='Adicione os participantes preenchendo o nome e o valor de contribuição de cada um, variando de acordo com a preferência de cada um. Valor sugerido: R$ 20,00.'
               type='warning'
             />
             <Form.List name='users'>
@@ -114,12 +114,10 @@ const NewRegister = () => {
                           ]}
                           initialValue={20}
                         >
-                          <Slider
-                            marks={{
-                              0: '0',
-                              20: '20',
-                              100: '100',
-                            }}
+                          <Styled.Number
+                            size='large'
+                            formatter={(value) => maskFormatter(value, 'R$')}
+                            parser={(value) => maskParser(value, 2, 'R$')}
                           />
                         </Form.Item>
                       </Col>

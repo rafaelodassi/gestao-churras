@@ -1,6 +1,6 @@
 import { FiUserPlus, FiMinusCircle } from 'react-icons/fi';
 
-import { DatePicker, Button, Form, Alert } from 'antd';
+import { DatePicker, Button, Form, Alert, InputNumber } from 'antd';
 import styled from 'styled-components';
 
 export const FooterDrawer = styled.div`
@@ -69,4 +69,10 @@ export const IconMinus = styled(FiMinusCircle)`
 
 export const Help = styled(Alert)`
   margin-bottom: 20px;
+`;
+
+export const Number = styled(InputNumber)`
+  &.ant-input-number {
+    width: 100%;
+  }
 `;
