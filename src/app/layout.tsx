@@ -2,7 +2,7 @@
 
 import { Provider } from 'react-redux';
 
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, Layout } from 'antd';
 import { Open_Sans } from 'next/font/google';
 import { ThemeProvider } from 'styled-components';
 
@@ -28,14 +28,14 @@ export default function RootLayout({
       <head>
         <title>Gestão Churras</title>
       </head>
-      <body className={openSans.className}>
+      <body>
         <Provider store={setupStore()}>
           <StyledComponentsRegistry>
             <AntdRegistry>
               <ThemeProvider theme={Theme}>
                 <ConfigProvider theme={Theme}>
                   <GlobalStyles />
-                  {children}
+                  <Layout>{children}</Layout>
                 </ConfigProvider>
               </ThemeProvider>
             </AntdRegistry>

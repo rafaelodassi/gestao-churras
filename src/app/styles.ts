@@ -101,25 +101,4 @@ export const IconAdd = styled(FiPlus)`
 export const Main = styled.main`
   flex-grow: 1;
   padding: 0 30px;
-
-  .masonry-grid {
-    display: flex;
-    margin-left: -30px;
-    width: auto;
-  }
-
-  .masonry-grid-column {
-    padding-left: 30px;
-    background-clip: padding-box;
-  }
-
-  .masonry-grid-column > div {
-    margin-bottom: 30px;
-  }
-`;
-
-export const Card = styled.div`
-  padding: 40px;
-  background: #fff;
-  border-radius: 8px;
 `;

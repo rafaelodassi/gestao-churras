@@ -18,7 +18,7 @@ export const GlobalStyles = createGlobalStyle`
     height: 100%;
   }
 
-  input, button {
+  input, button, svg {
     font-family: inherit;
     color: inherit;
   }

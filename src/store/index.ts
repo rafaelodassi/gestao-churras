@@ -4,9 +4,11 @@ import {
   PreloadedState,
 } from '@reduxjs/toolkit';
 
+import churrasReducer from './slices/churrasSlice';
 import uiReducer from './slices/uiSlice';
 
 const rootReducer = combineReducers({
+  churras: churrasReducer,
   ui: uiReducer,
 });
 
