@@ -64,6 +64,13 @@ export const churrasSlice = createSlice({
         allChurras.filter((c) => c.id !== action.payload)
       );
     },
+    searchChurras(state, action: PayloadAction<string>) {
+      const allChurras = getItem<ChurrasSlice['churras']>('gestaoChurras');
+
+      state.churras = allChurras.filter(
+        (c) => c.name.toLowerCase().search(action.payload.toLowerCase()) !== -1
+      );
+    },
   },
 });
 
@@ -74,4 +81,5 @@ export const {
   selectChurras,
   updateChurras,
   removeChurras,
+  searchChurras,
 } = churrasSlice.actions;
