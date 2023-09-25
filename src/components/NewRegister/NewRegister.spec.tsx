@@ -1,28 +1,25 @@
 import React from 'react';
 
-import { screen, fireEvent } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 
-import { Churras } from '../store/slices/churrasSlice';
-import { renderWithProviders } from '../test-utils/renderWithProviders';
+import { Churras } from '../../store/slices/churrasSlice';
+import { renderWithProviders } from '../../test-utils/renderWithProviders';
 
-import Home from './page';
+import NewRegister from './NewRegister';
 
-describe('Home', () => {
-  it('Should render Home and click new churras', async () => {
-    renderWithProviders(<Home />, {
+describe('NewRegister', () => {
+  it('Should render NewRegister', async () => {
+    renderWithProviders(<NewRegister />, {
       preloadedState: {
         churras: {
           churras: [],
           selectedChurras: {} as Churras,
         },
         ui: {
-          openDrawer: false,
+          openDrawer: true,
         },
       },
     });
-
-    const button = screen.getByText('Novo churras') as HTMLInputElement;
-    fireEvent.click(button);
 
     expect(screen.getByText('Nome do churras')).toBeInTheDocument();
     expect(screen.getByText('Data e hora do churras')).toBeInTheDocument();
@@ -38,5 +35,24 @@ describe('Home', () => {
     expect(screen.getByText('Adicionar participante')).toBeInTheDocument();
     expect(screen.getByText('Cancelar')).toBeInTheDocument();
     expect(screen.getByText('Cadastrar churras')).toBeInTheDocument();
+  });
+
+  it('Should render NewRegister mode edit', async () => {
+    renderWithProviders(<NewRegister />, {
+      preloadedState: {
+        churras: {
+          churras: [],
+          selectedChurras: {
+            id: '2a54aa4b-826f-43a5-9fe9-f2bd0d3f32d0',
+          } as Churras,
+        },
+        ui: {
+          openDrawer: true,
+        },
+      },
+    });
+
+    expect(screen.getByText('Editar churras')).toBeInTheDocument();
+    expect(screen.getByText('Atualizar churras')).toBeInTheDocument();
   });
 });

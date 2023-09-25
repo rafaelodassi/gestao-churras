@@ -6,6 +6,7 @@ jest.mock('antd', () => {
   return {
     ...jest.requireActual('antd'),
     Drawer: jest.fn((p) => p.children),
+    Collapse: jest.fn((p) => p.children),
   };
 });
 
