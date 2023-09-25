@@ -1,4 +1,4 @@
-import { FiSearch, FiPlus } from 'react-icons/fi';
+import { FiSearch, FiPlus, FiX } from 'react-icons/fi';
 
 import Image from 'next/image';
 import styled from 'styled-components';
@@ -68,17 +68,31 @@ export const InputSearch = styled.input`
   height: 45px;
   border: 0;
   border-radius: 24px;
-  padding: 0px 20px 0 45px;
+  padding: 0px 45px;
   outline: none;
   font-size: 16px;
 `;
 
 export const IconSearch = styled(FiSearch)`
   position: absolute;
-  top: 10px;
+  top: 11px;
   left: 12px;
   width: 24px;
   height: 24px;
+`;
+
+export const IconClear = styled(FiX)`
+  position: absolute;
+  top: 11px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  transition: color 0.3s;
+
+  &:hover {
+    cursor: pointer;
+    color: #9b9b9b;
+  }
 `;
 
 export const ButtonAdd = styled.button`

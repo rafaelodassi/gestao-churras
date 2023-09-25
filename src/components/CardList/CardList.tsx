@@ -12,6 +12,7 @@ import {
   Churras,
   selectChurras,
   removeChurras,
+  setStatus,
 } from '../../store/slices/churrasSlice';
 import { setOpenDrawer } from '../../store/slices/uiSlice';
 
@@ -20,10 +21,16 @@ import * as Styled from './styles';
 const CardList = () => {
   const dispatch = useAppDispatch();
 
+  const status = useAppSelector((state) => state.churras.status);
   const churras = useAppSelector((state) => state.churras.churras);
 
   useEffect(() => {
-    dispatch(getChurras());
+    dispatch(setStatus('loading'));
+
+    setTimeout(() => {
+      dispatch(setStatus('succeeded'));
+      dispatch(getChurras());
+    }, 1000);
   }, [dispatch]);
 
   const observations = (observations: Churras['observation']) => {
@@ -110,7 +117,22 @@ const CardList = () => {
     }
   };
 
-  if (!churras.length) {
+  if (status === 'loading') {
+    return (
+      <Styled.ContainerSkeleton>
+        <Styled.SkeletonNode active={true} />
+        <Styled.SkeletonNode active={true} />
+        <Styled.SkeletonNode active={true} />
+        <Styled.SkeletonNode active={true} />
+        <Styled.SkeletonNode active={true} />
+        <Styled.SkeletonNode active={true} />
+        <Styled.SkeletonNode active={true} />
+        <Styled.SkeletonNode active={true} />
+      </Styled.ContainerSkeleton>
+    );
+  }
+
+  if (!churras.length && status === 'succeeded') {
     return (
       <Styled.ContainerEmpty>
         <Styled.ContainerInfo>

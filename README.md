@@ -14,6 +14,7 @@ Essas instruções permitirão que você obtenha uma cópia do projeto em opera�
 
 - NodeJS 18.15.0 ou maior instalado na máquina local
 - PNPM 8.2.0 ou maior instalado na máquina local
+- localStorage habilitado no navegador, pois é utilizado para simular a comunicação entre client e server.
 
 ### 🔧 Instalação
 

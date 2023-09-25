@@ -1,9 +1,12 @@
 import { FiClock, FiMoreHorizontal, FiEdit3, FiTrash } from 'react-icons/fi';
 import Masonry from 'react-masonry-css';
 
+import { Skeleton } from 'antd';
 import Image from 'next/image';
 import { getLuminance } from 'polished';
 import styled from 'styled-components';
+
+import { MEDIAS_QUERY } from '../../constants';
 
 export const ContainerEmpty = styled.div`
   height: 100%;
@@ -208,4 +211,37 @@ export const ContainerActionRemove = styled.div`
 export const IconRemove = styled(FiTrash)`
   width: 16px;
   height: 16px;
+`;
+
+export const ContainerSkeleton = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+
+  ${MEDIAS_QUERY.maxMdMin} {
+    flex-direction: column;
+  }
+`;
+
+export const SkeletonNode = styled(Skeleton.Node)`
+  &.ant-skeleton.ant-skeleton-element {
+    width: 200px;
+    height: 230px;
+
+    ${MEDIAS_QUERY.maxMdMin} {
+      width: 100%;
+    }
+
+    .ant-skeleton-image {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+
+      span {
+        display: none;
+      }
+    }
+  }
 `;

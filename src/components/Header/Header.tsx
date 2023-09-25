@@ -51,6 +51,7 @@ const Header = () => {
       </Styled.ContainerInfo>
       <Styled.ContainerActions>
         <Styled.ContainerSearch>
+          <Styled.IconSearch />
           <Styled.InputSearch
             type='text'
             placeholder='Pesquise aqui o seu churras pelo nome'
@@ -58,7 +59,7 @@ const Header = () => {
               debouncedChange(e);
             }}
           />
-          <Styled.IconSearch />
+          <Styled.IconClear />
         </Styled.ContainerSearch>
         <Styled.ButtonAdd onClick={newRegiter}>
           <Styled.IconAdd />

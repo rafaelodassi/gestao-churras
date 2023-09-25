@@ -3,6 +3,8 @@ import { ColorFactory } from 'antd/es/color-picker/color';
 
 import { setItem, getItem } from '../../utils/localStorage';
 
+export type Status = 'idle' | 'loading' | 'succeeded' | 'failed';
+
 export interface Churras {
   id: string;
   color: string | ColorFactory;
@@ -20,11 +22,13 @@ export interface Churras {
 export interface ChurrasSlice {
   churras: Churras[];
   selectedChurras: Churras;
+  status: Status;
 }
 
 const initialState: ChurrasSlice = {
   churras: [] as ChurrasSlice['churras'],
   selectedChurras: {} as Churras,
+  status: 'idle',
 };
 
 export const churrasSlice = createSlice({
@@ -39,6 +43,9 @@ export const churrasSlice = createSlice({
     },
     getChurras(state) {
       state.churras = getItem<ChurrasSlice['churras']>('gestaoChurras');
+    },
+    setStatus(state, action: PayloadAction<Status>) {
+      state.status = action.payload;
     },
     selectChurras(state, action: PayloadAction<Churras>) {
       state.selectedChurras = action.payload;
@@ -78,6 +85,7 @@ export default churrasSlice.reducer;
 export const {
   setChurras,
   getChurras,
+  setStatus,
   selectChurras,
   updateChurras,
   removeChurras,
