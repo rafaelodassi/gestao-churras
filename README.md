@@ -1,4 +1,4 @@
-# Gestão Churras
+# 🍺 Gestão Churras
 
 Gerencie seu churras e não deixe faltar nada!
 
