@@ -14,6 +14,7 @@ const customJestConfig = {
     '/src/lib/',
     '/src/constants/',
     '/src/test-utils/',
+    '/src/utils/',
     'styles.ts',
   ],
 };
