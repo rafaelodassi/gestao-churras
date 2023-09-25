@@ -22,6 +22,10 @@ export const GlobalStyles = createGlobalStyle`
     font-family: inherit;
     color: inherit;
   }
+
+  .ant-layout {
+    height: 100%;
+  }
 `;
 
 export const Theme: ThemeConfig = {};

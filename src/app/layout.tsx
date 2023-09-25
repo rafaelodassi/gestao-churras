@@ -3,20 +3,12 @@
 import { Provider } from 'react-redux';
 
 import { ConfigProvider, Layout } from 'antd';
-import { Open_Sans } from 'next/font/google';
 import { ThemeProvider } from 'styled-components';
 
 import AntdRegistry from '../lib/AntdRegistry';
 import StyledComponentsRegistry from '../lib/StyledComponentsRegistry';
 import { setupStore } from '../store';
 import { GlobalStyles, Theme } from '../styles/themeConfig';
-
-const openSans = Open_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
-  display: 'swap',
-  style: 'normal',
-});
 
 export default function RootLayout({
   children,

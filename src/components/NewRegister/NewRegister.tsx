@@ -88,7 +88,7 @@ const NewRegister = () => {
         children: (
           <>
             <Styled.Help
-              message='Adicione os participantes preenchendo o nome e o valor de contribuição de cada um, variando de acordo com a preferência de cada um. Valor sugerido: R$ 20,00.'
+              message='Adicione os participantes preenchendo o nome e o valor de contribuição, variando de acordo com a preferência de cada um. Valor sugerido: R$ 20,00.'
               type='warning'
             />
             <Form.List name='users'>

@@ -1,8 +1,30 @@
 import { FiClock, FiMoreHorizontal, FiEdit3, FiTrash } from 'react-icons/fi';
 import Masonry from 'react-masonry-css';
 
+import Image from 'next/image';
 import { getLuminance } from 'polished';
 import styled from 'styled-components';
+
+export const ContainerEmpty = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 30px;
+`;
+
+export const ContainerInfo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
+
+export const Sausage = styled(Image)``;
+
+export const TitleError = styled.h2`
+  margin: 0;
+`;
 
 export const Container = styled(Masonry)`
   &.masonry-grid {

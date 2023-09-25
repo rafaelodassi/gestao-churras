@@ -5,6 +5,7 @@ import React, { useEffect } from 'react';
 import type { MenuProps } from 'antd';
 import { Collapse, Dropdown } from 'antd';
 
+import Sausage from '../../../public/img/sausage.png';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
   getChurras,
@@ -108,6 +109,19 @@ const CardList = () => {
         break;
     }
   };
+
+  if (!churras.length) {
+    return (
+      <Styled.ContainerEmpty>
+        <Styled.ContainerInfo>
+          <Styled.Sausage src={Sausage} width={150} alt='Sausage' />
+          <Styled.TitleError>
+            Que pena. Nenhum churras foi encontrado!
+          </Styled.TitleError>
+        </Styled.ContainerInfo>
+      </Styled.ContainerEmpty>
+    );
+  }
 
   return (
     <Styled.Container
