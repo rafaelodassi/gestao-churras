@@ -192,7 +192,7 @@ const NewRegister = () => {
           </Col>
         </Row>
         <Row gutter={16}>
-          <Col span={18}>
+          <Col span={24}>
             <Form.Item
               name='date'
               label='Data e hora do churras'
@@ -209,7 +209,9 @@ const NewRegister = () => {
               />
             </Form.Item>
           </Col>
-          <Col span={6}>
+        </Row>
+        <Row gutter={16}>
+          <Col span={24}>
             <Styled.ContainerColor>
               <Form.Item
                 name='color'

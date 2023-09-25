@@ -11,6 +11,7 @@ export const ContainerEmpty = styled.div`
   align-items: center;
   justify-content: center;
   padding-bottom: 30px;
+  text-align: center;
 `;
 
 export const ContainerInfo = styled.div`

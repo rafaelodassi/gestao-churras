@@ -3,6 +3,8 @@ import { FiSearch, FiPlus } from 'react-icons/fi';
 import Image from 'next/image';
 import styled from 'styled-components';
 
+import { MEDIAS_QUERY } from '../../constants';
+
 export const Header = styled.header`
   padding: 10px 30px;
   display: flex;
@@ -10,6 +12,12 @@ export const Header = styled.header`
   align-items: center;
   background: #ffd836;
   box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+
+  ${MEDIAS_QUERY.maxMdMin} {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 20px;
+  }
 `;
 
 export const ContainerInfo = styled.div`
@@ -17,6 +25,10 @@ export const ContainerInfo = styled.div`
   align-items: center;
   justify-content: center;
   gap: 10px;
+
+  ${MEDIAS_QUERY.maxMdMin} {
+    width: 100%;
+  }
 `;
 
 export const Beer = styled(Image)``;
@@ -35,10 +47,15 @@ export const Description = styled.span`
   display: block;
 `;
 
-export const ContainerActions = styled.span`
+export const ContainerActions = styled.div`
   flex-grow: 1;
   display: flex;
   gap: 30px;
+
+  ${MEDIAS_QUERY.maxMdMin} {
+    gap: 10px;
+    width: 100%;
+  }
 `;
 
 export const ContainerSearch = styled.div`
@@ -89,4 +106,11 @@ export const ButtonAdd = styled.button`
 export const IconAdd = styled(FiPlus)`
   width: 24px;
   height: 24px;
+  flex-shrink: 0;
+`;
+
+export const TitleAdd = styled.span`
+  ${MEDIAS_QUERY.maxMdMin} {
+    display: none;
+  }
 `;

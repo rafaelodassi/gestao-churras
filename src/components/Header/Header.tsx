@@ -62,7 +62,7 @@ const Header = () => {
         </Styled.ContainerSearch>
         <Styled.ButtonAdd onClick={newRegiter}>
           <Styled.IconAdd />
-          Novo churras
+          <Styled.TitleAdd>Novo churras</Styled.TitleAdd>
         </Styled.ButtonAdd>
       </Styled.ContainerActions>
     </Styled.Header>
