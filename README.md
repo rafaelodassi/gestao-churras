@@ -4,7 +4,7 @@ Gerencie seu churras e não deixe faltar nada!
 
 ## 📦 Acesse o projeto
 
-Acesse o projeto hospedado na Vercel:
+Acesse o projeto hospedado na Vercel: https://gestao-churras.vercel.app/
 
 ## 🚀 Começando
 
