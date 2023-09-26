@@ -121,8 +121,12 @@ const NewRegister = () => {
                         >
                           <Styled.Number
                             size='large'
-                            formatter={(value) => maskFormatter(value, 'R$')}
-                            parser={(value) => maskParser(value, 2, 'R$')}
+                            formatter={(value) =>
+                              maskFormatter(value as string, 'R$') as string
+                            }
+                            parser={(value) =>
+                              maskParser(value, 2, 'R$') as string | number
+                            }
                           />
                         </Form.Item>
                       </Col>
