@@ -19,6 +19,8 @@ describe('CardList', () => {
         churras: {
           churras: [],
           selectedChurras: {} as Churras,
+          querySearch: '',
+          status: 'succeeded',
         },
         ui: {
           openDrawer: false,
