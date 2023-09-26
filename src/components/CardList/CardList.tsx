@@ -13,6 +13,8 @@ import {
   selectChurras,
   removeChurras,
   setStatus,
+  setQuerySearch,
+  searchChurras,
 } from '../../store/slices/churrasSlice';
 import { setOpenDrawer } from '../../store/slices/uiSlice';
 
@@ -110,6 +112,8 @@ const CardList = () => {
         dispatch(setOpenDrawer(true));
         break;
       case 'remove':
+        dispatch(setQuerySearch(''));
+        dispatch(searchChurras(''));
         dispatch(removeChurras(churras.id));
         break;
       default:

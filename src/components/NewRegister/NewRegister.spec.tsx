@@ -14,6 +14,8 @@ describe('NewRegister', () => {
         churras: {
           churras: [],
           selectedChurras: {} as Churras,
+          querySearch: '',
+          status: 'idle',
         },
         ui: {
           openDrawer: true,
@@ -45,6 +47,8 @@ describe('NewRegister', () => {
           selectedChurras: {
             id: '2a54aa4b-826f-43a5-9fe9-f2bd0d3f32d0',
           } as Churras,
+          querySearch: '',
+          status: 'idle',
         },
         ui: {
           openDrawer: true,

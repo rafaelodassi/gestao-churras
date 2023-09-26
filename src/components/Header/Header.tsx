@@ -1,17 +1,12 @@
 'use client';
 
-import React, { useCallback, useMemo, useEffect } from 'react';
-
-import debounce from 'lodash.debounce';
+import React from 'react';
 
 import Beer from '../../../public/img/beer.png';
 import { useAppDispatch } from '../../store/hooks';
-import {
-  selectChurras,
-  Churras,
-  searchChurras,
-} from '../../store/slices/churrasSlice';
+import { selectChurras, Churras } from '../../store/slices/churrasSlice';
 import { setOpenDrawer } from '../../store/slices/uiSlice';
+import Search from '../Search';
 
 import * as Styled from './styles';
 
@@ -22,21 +17,6 @@ const Header = () => {
     dispatch(selectChurras({} as Churras));
     dispatch(setOpenDrawer(true));
   };
-
-  const onSearch = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      dispatch(searchChurras(e.target.value));
-    },
-    [dispatch]
-  );
-
-  const debouncedChange = useMemo(() => debounce(onSearch, 300), [onSearch]);
-
-  useEffect(() => {
-    return () => {
-      debouncedChange.cancel();
-    };
-  }, [debouncedChange]);
 
   return (
     <Styled.Header>
@@ -50,17 +30,7 @@ const Header = () => {
         </Styled.ContainerText>
       </Styled.ContainerInfo>
       <Styled.ContainerActions>
-        <Styled.ContainerSearch>
-          <Styled.IconSearch />
-          <Styled.InputSearch
-            type='text'
-            placeholder='Pesquise aqui o seu churras pelo nome'
-            onChange={(e) => {
-              debouncedChange(e);
-            }}
-          />
-          <Styled.IconClear />
-        </Styled.ContainerSearch>
+        <Search />
         <Styled.ButtonAdd onClick={newRegiter}>
           <Styled.IconAdd />
           <Styled.TitleAdd>Novo churras</Styled.TitleAdd>

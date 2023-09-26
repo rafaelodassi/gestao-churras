@@ -21,6 +21,8 @@ import {
   setChurras,
   Churras,
   updateChurras,
+  setQuerySearch,
+  searchChurras,
 } from '../../store/slices/churrasSlice';
 import { setOpenDrawer } from '../../store/slices/uiSlice';
 import { maskFormatter, maskParser } from '../../utils/format';
@@ -69,6 +71,9 @@ const NewRegister = () => {
       } else {
         dispatch(setChurras(valueFormatted));
       }
+
+      dispatch(setQuerySearch(''));
+      dispatch(searchChurras(''));
 
       onCloseDrawer();
     });

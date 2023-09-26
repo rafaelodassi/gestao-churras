@@ -14,6 +14,8 @@ describe('Home', () => {
         churras: {
           churras: [],
           selectedChurras: {} as Churras,
+          querySearch: '',
+          status: 'idle',
         },
         ui: {
           openDrawer: false,

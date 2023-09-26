@@ -5,11 +5,11 @@ import { screen } from '@testing-library/react';
 import { Churras } from '../../store/slices/churrasSlice';
 import { renderWithProviders } from '../../test-utils/renderWithProviders';
 
-import Header from './Header';
+import Search from './Search';
 
-describe('Header', () => {
-  it('Should render Header', async () => {
-    renderWithProviders(<Header />, {
+describe('Search', () => {
+  it('Should render Search', async () => {
+    renderWithProviders(<Search />, {
       preloadedState: {
         churras: {
           churras: [],
@@ -23,10 +23,8 @@ describe('Header', () => {
       },
     });
 
-    expect(screen.getByText('Gestão Churras')).toBeInTheDocument();
     expect(
-      screen.getByText('Gerencie seu churras e não deixe faltar nada!')
+      screen.getByPlaceholderText('Pesquise aqui o seu churras pelo nome')
     ).toBeInTheDocument();
-    expect(screen.getByText('Novo churras')).toBeInTheDocument();
   });
 });

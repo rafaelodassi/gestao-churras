@@ -23,12 +23,14 @@ export interface ChurrasSlice {
   churras: Churras[];
   selectedChurras: Churras;
   status: Status;
+  querySearch: string;
 }
 
 const initialState: ChurrasSlice = {
   churras: [] as ChurrasSlice['churras'],
   selectedChurras: {} as Churras,
   status: 'idle',
+  querySearch: '',
 };
 
 export const churrasSlice = createSlice({
@@ -71,6 +73,9 @@ export const churrasSlice = createSlice({
         allChurras.filter((c) => c.id !== action.payload)
       );
     },
+    setQuerySearch(state, action: PayloadAction<string>) {
+      state.querySearch = action.payload;
+    },
     searchChurras(state, action: PayloadAction<string>) {
       const allChurras = getItem<ChurrasSlice['churras']>('gestaoChurras');
 
@@ -90,4 +95,5 @@ export const {
   updateChurras,
   removeChurras,
   searchChurras,
+  setQuerySearch,
 } = churrasSlice.actions;

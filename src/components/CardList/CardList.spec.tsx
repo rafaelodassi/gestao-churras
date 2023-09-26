@@ -53,6 +53,8 @@ describe('CardList', () => {
             },
           ],
           selectedChurras: {} as Churras,
+          querySearch: '',
+          status: 'idle',
         },
         ui: {
           openDrawer: false,
